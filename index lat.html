@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sai Mobile Shop Barhali –  Repairs, Accessories</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="same-day repairs and accessories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#f6f8fb; --surface:#ffffff; --ink:#0f1a2e; --muted:#54627a;
+  --blue:#1f4fff; --blue-ink:#ffffff; --tag:#ffd23f; --tag-ink:#1a1400; --line:#d9e0ec; --soft:#e8edff;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0c1322; --surface:#141d31; --ink:#eef2fb; --muted:#9aa8c2;
+    --blue:#6f90ff; --blue-ink:#07112b; --tag:#ffd23f; --tag-ink:#1a1400; --line:#26324d; --soft:#1a2547;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0c1322; --surface:#141d31; --ink:#eef2fb; --muted:#9aa8c2;
+  --blue:#6f90ff; --blue-ink:#07112b; --tag:#ffd23f; --tag-ink:#1a1400; --line:#26324d; --soft:#1a2547;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+.brand{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.02em}
+.brand span{background:var(--tag);color:var(--tag-ink);padding:0 .35em;border-radius:6px;margin-right:.15em}
+.nav{display:flex;gap:22px;font-weight:500}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:700 1rem var(--body);padding:.85em 1.3em;border-radius:12px;border:2px solid var(--blue);background:var(--blue);color:var(--blue-ink);text-decoration:none;cursor:pointer;min-height:48px}
+.btn:hover{filter:brightness(1.08)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.alt:hover{border-color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr;gap:36px;padding:28px 0 64px}
+.hero h1{font-size:clamp(2.6rem,8vw,4.8rem);font-weight:800;max-width:11ch}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:44ch;margin:18px 0 26px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.open{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--muted);margin-top:22px;font-size:.95rem}
+.dot{width:10px;height:10px;border-radius:50%;background:#22a559;box-shadow:0 0 0 4px rgba(34,165,89,.2)}
+.dot.closed{background:#c0392b;box-shadow:0 0 0 4px rgba(192,57,43,.2)}
+
+/* repair board */
+.board{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:22px;box-shadow:8px 8px 0 var(--tag)}
+.board h2{font-size:1.6rem;margin-bottom:4px}
+.board p.sub{margin:0 0 18px;color:var(--muted);font-size:.95rem}
+fieldset{border:0;padding:0;margin:0 0 16px}
+legend{font-weight:700;margin-bottom:8px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{padding:.5em .95em;border:2px solid var(--line);border-radius:999px;cursor:pointer;font-weight:500;min-height:44px;display:inline-flex;align-items:center}
+.chips input:checked + label{background:var(--blue);border-color:var(--blue);color:var(--blue-ink);font-weight:700}
+.chips input:focus-visible + label{outline:3px solid var(--blue);outline-offset:2px}
+.quote{background:var(--soft);border-radius:12px;padding:16px;margin:4px 0 16px}
+.quote .price{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1}
+.quote .meta{color:var(--muted);font-size:.95rem;margin-top:6px}
+.board .btn{width:100%}
+.fine{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+
+/* sections */
+section.block{padding:56px 0;border-top:1px solid var(--line)}
+section.block > .wrap > h2{font-size:clamp(1.9rem,5vw,2.8rem);margin-bottom:28px}
+.rows{display:grid;gap:0}
+.row{display:grid;grid-template-columns:1fr;gap:4px;padding:20px 0;border-bottom:1px solid var(--line)}
+.row:first-child{border-top:1px solid var(--line)}
+.row h3{font-size:1.35rem}
+.row p{margin:0;color:var(--muted);max-width:60ch}
+
+.phones{display:grid;grid-template-columns:1fr;gap:16px}
+.phone{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center}
+.shape{width:64px;height:100px;border-radius:14px;border:3px solid var(--ink);background:linear-gradient(160deg,var(--soft),var(--surface));position:relative}
+.shape::after{content:"";position:absolute;top:6px;left:50%;width:18px;height:5px;background:var(--ink);border-radius:4px;transform:translateX(-50%)}
+.phone h3{font-size:1.15rem}
+.phone .spec{color:var(--muted);font-size:.9rem}
+.phone .cost{font-family:var(--display);font-weight:800;font-size:1.3rem;text-align:right}
+.phone .cond{display:inline-block;background:var(--tag);color:var(--tag-ink);font-weight:700;font-size:.75rem;padding:.1em .6em;border-radius:6px;margin-top:4px}
+
+.visit{display:grid;gap:28px}
+.visit dl{margin:0;display:grid;gap:16px}
+.visit dt{font-weight:700}
+.visit dd{margin:0;color:var(--muted)}
+.hours{width:100%;border-collapse:collapse;color:var(--muted)}
+.hours td{padding:6px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;color:var(--ink);font-weight:500}
+.hours tr.today td{color:var(--ink);font-weight:700}
+.mapbox{border:2px dashed var(--line);border-radius:14px;min-height:200px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:20px}
+
+footer{padding:36px 0 110px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+/* sticky mobile action bar */
+.dock{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:1px solid var(--line);z-index:5}
+.dock .btn{flex:1}
+
+@media (min-width:760px){
+  .hero{grid-template-columns:1.05fr .95fr;align-items:center;padding-top:48px}
+  .row{grid-template-columns:260px 1fr;gap:24px;align-items:baseline}
+  .phones{grid-template-columns:1fr 1fr}
+  .visit{grid-template-columns:1fr 1fr}
+  .dock{display:none}
+  footer{padding-bottom:36px}
+}
+@media (max-width:759px){.nav{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><span>Sai</span>Mobile Shop</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#repairs">Repairs</a>
+      <a href="#phones">Phones</a>
+      <a href="#services">Services</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn alt" href="tel:+919370755657">Call now</a>
+  </header>
+
+  <main>
+    <section class="hero" id="repairs">
+      <div>
+        <h1>Broken phone? Fixed today.</h1>
+        <p class="lead">Screen, battery and charging repairs while you wait. New and used phones, and every accessory you need.</p>
+        <div class="cta">
+          <a class="btn" href="https://wa.me/919370755657?text=Hi%2C%20I%20need%20help%20with%20my%20phone" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn alt" href="#phones">See phones in stock</a>
+        </div>
+        <div class="open"><span class="dot" id="dot"></span><span id="openText">Checking hours…</span></div>
+      </div>
+
+      <div class="board" aria-labelledby="boardTitle">
+        <h2 id="boardTitle">Repair price check</h2>
+        <p class="sub">Pick your phone and the problem. Get a price range in seconds.</p>
+        <fieldset>
+          <legend>Phone brand</legend>
+          <div class="chips" id="brands"></div>
+        </fieldset>
+        <fieldset>
+          <legend>What's wrong?</legend>
+          <div class="chips" id="issues"></div>
+        </fieldset>
+        <div class="quote" aria-live="polite">
+          <div class="price" id="price">₹–</div>
+          <div class="meta" id="meta">Choose a brand and a problem.</div>
+        </div>
+        <a class="btn" id="send" href="#" target="_blank" rel="noopener">Send this to the shop on WhatsApp</a>
+        <p class="fine">Final price is confirmed after we check the phone. Checking is free.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<section class="block" id="phones">
+  <div class="wrap">
+    <h2>Phones in stock</h2>
+    <div class="phones">
+      <article class="phone"><div class="shape" aria-hidden="true"></div><div><h3>Samsung Galaxy A15</h3><div class="spec">6 GB / 128 GB, sealed box</div><span class="cond">New</span></div><div class="cost">₹13,499</div></article>
+      <article class="phone"><div class="shape" aria-hidden="true"></div><div><h3>Redmi Note 13</h3><div class="spec">8 GB / 128 GB, sealed box</div><span class="cond">New</span></div><div class="cost">₹15,999</div></article>
+      <article class="phone"><div class="shape" aria-hidden="true"></div><div><h3>iPhone 12</h3><div class="spec">64 GB, battery 88%, 6-month warranty</div><span class="cond">Used</span></div><div class="cost">₹27,500</div></article>
+      <article class="phone"><div class="shape" aria-hidden="true"></div><div><h3>Realme Narzo 60</h3><div class="spec">8 GB / 128 GB, 1 year old</div><span class="cond">Used</span></div><div class="cost">₹9,800</div></article>
+    </div>
+    <p class="fine">Stock changes daily. Message us to check what's available today.</p>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <div class="rows">
+      <div class="row"><h3>Repairs</h3><p>Screen replacement, battery, charging port, speaker, mic and software problems. Most jobs finish the same day.</p></div>
+      <div class="row"><h3>Used phones</h3><p>All major brands. Used phones are tested and come with a shop warranty.</p></div>
+      <div class="row"><h3>Accessories</h3><p>Cases, tempered glass, chargers, cables, earphones and power banks. Glass fitted free with purchase.</p></div>
+      <div class="row"><h3>Recharge and bill pay</h3><p>Mobile recharge, DTH and utility bills paid at the counter.</p></div>
+    </div>
+  </div
+</section>
+
+<section class="block" id="visit">
+  <div class="wrap">
+    <h2>Visit the shop</h2>
+    <div class="visit">
+      <div>
+        <dl>
+          <div><dt>Address</dt><dd>Sai Mobile Shop , New Bus Stand, Barhali 431715 </dd></div>
+          <div><dt>Phone and WhatsApp</dt><dd><a href="tel:+919370755657">+91 9370755657</a></dd></div>
+        </dl>
+        <h3 style="font-size:1.1rem;margin:24px 0 8px">Opening hours</h3>
+        <table class="hours" id="hours"><tbody></tbody></table>
+      </div>
+      <div class="mapbox">
+    <a href="https://maps.app.goo.gl/5XGemMMgTLWZRiiL7"
+       target="_blank"
+       rel="noopener">
+        📍 Open location in Google Maps
+    </a>
+</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Your Mobile Shop. All prices in Indian rupees, inclusive of GST where applicable.</div>
+</footer>
+
+<div class="dock">
+  <a class="btn alt" href="tel:+919370755657">Call</a>
+  <a class="btn" href="https://wa.me/919370755657" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var PHONE="919370755657";
+  var brands=["Samsung","Apple","Xiaomi / Redmi","Realme","Vivo / Oppo","Other"];
+  var issues=["Cracked screen","Battery","Charging port","Water damage","Software / hang"];
+  // price ranges [min,max] per brand index x issue index (edit these to your real rates)
+  var P=[
+    [[2200,5500],[700,1200],[400,800],[800,2500],[200,500]],
+    [[4500,14000],[1800,4500],[1200,2500],[1500,6000],[300,800]],
+    [[1500,3800],[600,1100],[350,700],[700,2000],[200,500]],
+    [[1600,3600],[600,1100],[350,700],[700,2000],[200,500]],
+    [[1800,4200],[650,1200],[350,750],[700,2200],[200,500]],
+    [[1500,5000],[600,1500],[350,900],[700,2500],[200,600]]
+  ];
+  var T=["Same day, about 1 hour","Same day, about 30 minutes","Same day, about 45 minutes","1 to 2 days after checking","Same day, about 1 hour"];
+  var b=null,i=null;
+  var brandsEl=document.getElementById("brands"),issuesEl=document.getElementById("issues");
+  function chips(el,list,name,cb){
+    list.forEach(function(t,n){
+      var id=name+n;
+      var inp=document.createElement("input");inp.type="radio";inp.name=name;inp.id=id;
+      inp.addEventListener("change",function(){cb(n)});
+      var lab=document.createElement("label");lab.htmlFor=id;lab.textContent=t;
+      el.appendChild(inp);el.appendChild(lab);
+    });
+  }
+  function fmt(n){return "₹"+n.toLocaleString("en-IN")}
+  function update(){
+    var price=document.getElementById("price"),meta=document.getElementById("meta"),send=document.getElementById("send");
+    var msg;
+    if(b===null||i===null){
+      price.textContent="₹–";
+      meta.textContent=b===null?"Choose a brand and a problem.":"Now choose the problem.";
+      msg="Hi, I need help with my phone";
+    }else{
+      var r=P[b][i];
+      price.textContent=fmt(r[0])+" to "+fmt(r[1]);
+      meta.textContent=T[i];
+      msg="Hi, my "+brands[b]+" phone has this problem: "+issues[i]+". Estimate shown: "+fmt(r[0])+" to "+fmt(r[1])+". Can I bring it in today?";
+    }
+    send.href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg);
+  }
+  chips(brandsEl,brands,"brand",function(n){b=n;update()});
+  chips(issuesEl,issues,"issue",function(n){i=n;update()});
+  update();
+
+  // hours: index 0 = Sunday
+  var H=[["Sunday","08:00","20:00"],["Monday","09:00","20:00"],["Tuesday","09:00","20:00"],["Wednesday","09:00","20:00"],["Thursday","09:00","20:00"],["Friday","09:00","20:00"],["Saturday","09:00","20:00"]];
+  var order=[1,2,3,4,5,6,0], now=new Date(), today=now.getDay();
+  function label(t){var p=t.split(":"),h=+p[0];return ((h+11)%12+1)+":"+p[1]+(h<12?" am":" pm")}
+  var tb=document.querySelector("#hours tbody");
+  order.forEach(function(d){
+    var tr=document.createElement("tr");if(d===today)tr.className="today";
+    tr.innerHTML="<td>"+H[d][0]+"</td><td>"+label(H[d][1])+" to "+label(H[d][2])+"</td>";
+    tb.appendChild(tr);
+  });
+  var mins=now.getHours()*60+now.getMinutes();
+  function toM(t){var p=t.split(":");return +p[0]*60+ +p[1]}
+  var h=H[today],isOpen=mins>=toM(h[1])&&mins<toM(h[2]);
+  var dot=document.getElementById("dot"),txt=document.getElementById("openText");
+  if(isOpen){txt.textContent="Open now, until "+label(h[2])}
+  else{dot.className="dot closed";txt.textContent="Closed now. Opens "+(mins<toM(h[1])?"today":"tomorrow")+" at "+label(mins<toM(h[1])?h[1]:H[(today+1)%7][1])}
+  document.getElementById("yr").textContent=now.getFullYear();
+})();
+</script>
+</body>
+</html>
